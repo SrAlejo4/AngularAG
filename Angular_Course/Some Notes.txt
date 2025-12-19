@@ -1,0 +1,13 @@
+- Install Node Js. Verify its installation with the command node -v
+- Install Angular Cli
+- Create Angular app (ng new appName)
+
+- To run the angular Project, always ng serve command in cmd
+- If I clone an Angular Project from a git repo, I'll have to run npm install command to install all the dependent packages for node_modules.
+
+- To create a component from Angular CLI, ng generate component componentName command in cmd
+or ng g c componentName
+Oscar Humberto Higuita Peña
+Líder de desarrollo
+ohiguita@cesde.edu.co
+3043487175

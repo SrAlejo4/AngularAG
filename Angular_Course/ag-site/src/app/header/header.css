@@ -1,0 +1,34 @@
+.agsite--header{
+    width: 100%;
+    height: 11vh;
+    display:flex;
+    flex-wrap: wrap;
+    border-bottom: #E5E4E2 1.5px solid;
+}
+
+.agsite-logo{
+    padding: 1.2vh 8vh;
+    font-size: 40px;
+    font-weight: bold;
+    color: #36454F;
+    font-family: "Sekuya", system-ui;
+    width:20%;
+}
+.agsite--header--nav{
+    width: 80%;
+    padding: 1vh 2vh;
+    font-size: 10px;
+}
+.agsite--bottom--bar{
+    display: flex;
+}
+.btn{
+    padding: 15px 25px;
+    border: none;
+    margin: 10px 0px;
+}
+
+.btn-primary{
+    background-color: #28282B;
+    color: white;
+}

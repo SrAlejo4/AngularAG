@@ -1,0 +1,125 @@
+
+<nav class="navbar navbar-dark bg-black">
+  <a class="navbar-brand" href="/">
+    Gestión de actividades académicas
+  </a>
+</nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col md 8 mt-4">
+
+      <ul class="list-group">
+        @for ( activity of activityArray; track activity.name ){
+          <li class="list-group-item list-group-item-action"
+          (click)="openForEdit(activity)"
+          [class.active] = "activity == selectedActivity">
+            {{ activity.name }} - {{ activity.type }} - {{ activity.programme }} - {{ activity.subject }} - {{ activity.dateline }} 
+          </li>
+        }
+      </ul>
+      
+      <div class="card mt-4">
+        <div class="card-body">
+          <div class="card-title">
+            Registrar nueva actividad
+          </div>
+
+          <div class="form-group mt-4">
+
+            <input type="text" name="name" [(ngModel)] = "selectedActivity.name" #name="ngModel" required 
+            placeholder="Ingrese nombre de actividad" class="form-control">
+            
+            @if(name.invalid && name.touched){
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            }
+          </div>
+
+          <div class="form-group mt-4">
+            <label for="type"> Seleccione el tipo de actividad: </label>
+              <select id="type" name="type" class="form-control" [(ngModel)]="selectedActivity.type"
+              #type="ngModel" required>
+
+                <option value="" disabled>
+                  -- Seleccione una opción --
+                </option>
+
+                @for(type of activityTypes; track type){
+                <option [value]="type">
+                  {{ type }}
+                </option>
+                }
+              </select>
+
+              @if(type.invalid && type.touched){
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            }
+          </div>
+
+          <div class="form-group mt-4">
+            <label for="programme"> Seleccione el programa técnico: </label>
+              <select id="programme" name="programme" class="form-control" [(ngModel)]="selectedActivity.programme"
+              #programme="ngModel" required>
+
+                <option value="" disabled>
+                  -- Seleccione una opción --
+                </option>
+
+                @for(programme of activityProgrammes; track programme){
+                <option [value]="programme">
+                  {{ programme }}
+                </option>
+                }
+              </select>
+
+              @if(programme.invalid && programme.touched){
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            }
+          </div>
+
+          <div class="form-group mt-4">
+
+            <input type="text" name="subject" [(ngModel)] = "selectedActivity.subject" #subject="ngModel" required 
+            placeholder="Ingrese el nombre del módulo" class="form-control">
+            
+            @if(subject.invalid && subject.touched){
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            }
+          </div>
+
+          <div class="form-group mt-4">
+            <input type="date" name="dateline" [(ngModel)] = "selectedActivity.dateline" #dateline="ngModel" required
+            class="form-control">
+
+            @if(dateline.invalid && dateline.touched){
+              <div class="text-danger">
+                Campo obligatorio
+              </div>
+            }
+          </div> 
+
+          <button class="btn btn-primary mt-4" [disabled]="name.invalid || type.invalid || programme.invalid
+          || subject.invalid || dateline.invalid"
+          (click)="addOrEdit()">
+            Enviar
+          </button>
+
+          @if( selectedActivity.name != ""){
+            <button class="btn btn-danger md 4 mt-4"
+            (click)="delete()">
+              Eliminar
+            </button>
+          }
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>
