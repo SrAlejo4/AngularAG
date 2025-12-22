@@ -1,0 +1,7 @@
+<app-filter [all]="totalProductCount" 
+[inStock]="totalProductInStock" 
+[outOfStock]="totalProductOutOfStock"></app-filter>
+
+<div class="agsite-products-container">
+    <app-product *ngFor="let prod of products" [product]="prod"></app-product>
+</div>
