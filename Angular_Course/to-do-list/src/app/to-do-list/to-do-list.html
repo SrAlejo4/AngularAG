@@ -1,0 +1,29 @@
+<body>
+    <div class="main-container">
+        <div class="row">
+            <form class="row g-3 align-items-center">
+                <div class="form-control col-auto d-flex gap-2">
+                    <input type="text" class="form-control" placeholder="Ingrese una tarea: ">
+                    <button type="button" class="btn btn-success">Agregar tarea</button>
+                </div>
+            </form>
+            
+            <ul class="list-group col mt-4">
+                @for( task of tasksArray; track task.id){
+                    <li class="list-group-item">
+
+                        <input class="form-check-input" type="checkbox" 
+                        [(ngModel)]="task.completed" name="completed-{{ task.id }}">
+
+                        <label class="form-check-label"
+                        [ngStyle]="{'font-style': task.completed ? 'italic' : 'normal',
+                        'text-decoration': task.completed ? 'line-through' : 'none'}"> 
+                            {{task.description}} 
+                        </label>
+                    </li>
+                }
+            </ul>
+
+        </div>
+    </div>
+</body>

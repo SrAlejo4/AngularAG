@@ -1,0 +1,20 @@
+body{
+    
+}
+
+.main-container{
+    width: 70%;
+    min-width: 300px;
+    max-width: 1200px;
+    padding: 40px;
+    margin: auto;
+    margin-top: 50px;
+    text-align: center;
+    border: 3px solid rgb(229, 102, 11);
+    border-radius: 5px;
+}
+
+.form-control{
+    padding: 5px;
+    margin: auto;
+}

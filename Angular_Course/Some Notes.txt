@@ -7,6 +7,8 @@
 
 - To create a component from Angular CLI, ng generate component componentName command in cmd
 or ng g c componentName
+
+
 Oscar Humberto Higuita Peña
 Líder de desarrollo
 ohiguita@cesde.edu.co
